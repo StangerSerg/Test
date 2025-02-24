@@ -1,5 +1,6 @@
 def list_handling(lst):
     '''
+    Короткая версия функции, без встроенных функций - ниже
     Обработка списка чисел:
     1. Удаление дублирующихся значений
     2. Удаление всех нечётных значений
@@ -8,6 +9,9 @@ def list_handling(lst):
     :param lst: список чисел
     :return: list
     '''
+    #проверка входящих данных
+    if not all([type(x) in (int,float) for x in lst]):
+        raise ValueError("Все элементы списка должны быть числами")
 
     # удаляем дубликаты через преобразование ко множеству
     set_lst = set(lst)
@@ -33,6 +37,9 @@ def list_handling_long(lst):
     :param lst: список чисел
     :return: list
     '''
+    #проверка входящих данных
+    if not all([type(x) in (int,float) for x in lst]):
+        raise ValueError("Все элементы списка должны быть числами")
 
     #удаляем из списка дублирующиеся и нечетные элементы
     res = []
@@ -48,7 +55,6 @@ def list_handling_long(lst):
                 res[j], res[j+1] = res[j+1], res[j]
 
     return res
-
 
 
 def check_palindrome(text):
